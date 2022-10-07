@@ -1,8 +1,10 @@
 import { Injectable } from '@nestjs/common';
+import { UserRepository } from '../persistence/repository/user.repository';
 
 @Injectable()
 export class UserService {
+  constructor(readonly userRepository: UserRepository) {}
   getHello(): string {
-    return 'Hello World!';
+    return this.userRepository.getHello();
   }
 }
