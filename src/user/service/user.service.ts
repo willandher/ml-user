@@ -7,10 +7,21 @@ import { userEntityToUserDto } from '../helper/UserMapper';
 export class UserService {
   constructor(readonly userRepository: UserRepository) {}
   async getUser(): Promise<UserDto> {
-    return await this.userRepository.get(null).then(userEntityToUserDto);
+    return await this.userRepository.getUser(null).then(userEntityToUserDto);
   }
 
   async getLevel(level: string): Promise<any> {
     return await this.userRepository.getLevel(level);
+  }
+
+  async getPurcharse(userId: number, limit = 10, offset = 0): Promise<any> {
+    return await this.userRepository.getPurcharseByUserId(
+      userId,
+      limit,
+      offset,
+    );
+  }
+  async getRestrictionsByUser(id: number) {
+    return this.userRepository.getRestrictionsByUser(id);
   }
 }
