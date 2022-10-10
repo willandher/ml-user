@@ -27,9 +27,7 @@ export class HttpServiceAdapter {
     config?,
     trackId?: string,
   ): Promise<any> {
-    return lastValueFrom(
-      this.httpService.post(host, { ...config }, body),
-    )
+    return lastValueFrom(this.httpService.post(host, { ...config }, body))
       .then((res) => {
         return res.data;
       })

@@ -1,12 +1,16 @@
 import { Injectable } from '@nestjs/common';
-import { IRepository } from '../persistence/i-repository';
-import { UserEntity } from '../persistence/model/user.entity';
 import { UserRepository } from '../persistence/repository/user.repository';
+import { UserDto } from '../dto/user.dto';
+import { userEntityToUserDto } from '../helper/UserMapper';
 
 @Injectable()
 export class UserService {
   constructor(readonly userRepository: UserRepository) {}
-  getHello(): any {
-    return this.userRepository.get(null);
+  async getUser(): Promise<UserDto> {
+    return await this.userRepository.get(null).then(userEntityToUserDto);
+  }
+
+  async getLevel(level: string): Promise<any> {
+    return await this.userRepository.getLevel(level);
   }
 }
