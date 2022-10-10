@@ -22,7 +22,9 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@nestjs/axios": "^0.1.0",
     "@nestjs/common": "^9.0.0",
+    "@nestjs/config": "^2.2.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
     "husky": "^8.0.1",
@@ -31,7 +33,7 @@
     "pino-pretty": "^9.1.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.5.7"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.0.0",
