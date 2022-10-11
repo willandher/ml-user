@@ -1,4 +1,4 @@
-import { UserEntity } from '../persistence/model/user.entity';
+import { UserEntity } from '../database/model/user.entity';
 import { UserDto } from '../dto/user.dto';
 
 export const userEntityToUserDto = (userEntity: UserEntity): UserDto => {
