@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { UserRepository } from '../database/repository/user.repository';
 import { UserDto } from '../dto/user.dto';
-import { userEntityToUserDto } from '../helper/UserMapper';
+import { userEntityToUserDto, userRestrictions } from '../helper/UserMapper';
 
 @Injectable()
 export class UserService {
@@ -22,6 +22,6 @@ export class UserService {
     );
   }
   async getRestrictionsByUser(id: number) {
-    return this.userRepository.getRestrictionsByUser(id);
+    return this.userRepository.getRestrictionsByUser(id).then(userRestrictions);
   }
 }

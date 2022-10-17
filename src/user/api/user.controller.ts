@@ -1,6 +1,13 @@
-import { Controller, Get, HttpStatus, Param, ParseIntPipe, Query } from "@nestjs/common";
-import { UserService } from "../service/user.service";
-import { UserDto } from "../dto/user.dto";
+import {
+  Controller,
+  Get,
+  HttpStatus,
+  Param,
+  ParseIntPipe,
+  Query,
+} from '@nestjs/common';
+import { UserService } from '../service/user.service';
+import { UserDto } from '../dto/user.dto';
 
 @Controller('api/v1/users')
 export class UserController {
