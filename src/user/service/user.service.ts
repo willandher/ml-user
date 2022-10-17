@@ -1,10 +1,27 @@
 import { Injectable } from '@nestjs/common';
-import { UserRepository } from '../persistence/repository/user.repository';
+import { UserRepository } from '../database/repository/user.repository';
+import { UserDto } from '../dto/user.dto';
+import { userEntityToUserDto, userRestrictions } from '../helper/UserMapper';
 
 @Injectable()
 export class UserService {
   constructor(readonly userRepository: UserRepository) {}
-  getHello(): string {
-    return this.userRepository.getHello();
+  async getUser(): Promise<UserDto> {
+    return await this.userRepository.getUser(null).then(userEntityToUserDto);
+  }
+
+  async getLevel(level: string): Promise<any> {
+    return await this.userRepository.getLevel(level);
+  }
+
+  async getPurcharse(userId: number, limit = 10, offset = 0): Promise<any> {
+    return await this.userRepository.getPurcharseByUserId(
+      userId,
+      limit,
+      offset,
+    );
+  }
+  async getRestrictionsByUser(id: number) {
+    return this.userRepository.getRestrictionsByUser(id).then(userRestrictions);
   }
 }
