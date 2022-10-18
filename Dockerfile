@@ -6,9 +6,9 @@ COPY --chown=node:node package*.json ./
 
 COPY --chown=node:node . .
 
-RUN npm run build
-
 RUN npm isntall
+
+RUN npm run build
 
 USER node
 
