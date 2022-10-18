@@ -49,7 +49,13 @@ export class UserController {
   }
 
   @Get('/:id/restrictions')
-  getRestrictionsByUserId(@Param('id', new ParseIntPipe({errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE}))id: number): Promise<any>{
+  getRestrictionsByUserId(
+    @Param(
+      'id',
+      new ParseIntPipe({ errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE }),
+    )
+    id: number,
+  ): Promise<any> {
     return this.userService.getRestrictionsByUser(id);
   }
 }

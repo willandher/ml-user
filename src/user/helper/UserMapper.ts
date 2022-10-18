@@ -1,7 +1,7 @@
 import { UserEntity } from '../database/model/user.entity';
 import { UserDto } from '../dto/user.dto';
-import { UserRestrictionsEntity } from "../database/model/user-restrictions.entity";
-import { UserRestrictionDto } from "../dto/user.restriction.dto";
+import { UserRestrictionsEntity } from '../database/model/user-restrictions.entity';
+import { UserRestrictionDto } from '../dto/user.restriction.dto';
 
 export const userEntityToUserDto = (userEntity: UserEntity): UserDto => {
   return {

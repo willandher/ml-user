@@ -1,4 +1,4 @@
-export class UserRestrictionsEntity{
+export class UserRestrictionsEntity {
   tipo: string;
   mensaje: string;
 }
